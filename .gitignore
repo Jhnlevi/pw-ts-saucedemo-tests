@@ -55,3 +55,9 @@ coverage/
 # Others
 *.log
 *.out
+
+# Playwright
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
