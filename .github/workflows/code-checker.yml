@@ -1,0 +1,26 @@
+name: Code Checker
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+
+jobs:
+  lint-and-format:
+    name: "Code Quality (ESLint + Prettier)"
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+
+      - name: Install node dependencies
+        run: npm install -g pnpm && pnpm install
+
+      - name: "Run linting and formatting checks"
+        run: pnpm check
