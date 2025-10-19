@@ -1,0 +1,18 @@
+import eslint from "@eslint/js";
+import { defineConfig } from "eslint/config";
+import tseslint from "typescript-eslint";
+import eslintConfigPrettier from "eslint-config-prettier/flat";
+
+export default defineConfig([
+  eslint.configs.recommended,
+  tseslint.configs.recommended,
+  // {
+  //   parserOptions:{
+  //     project: "./tsconfig.json"
+  //   },
+  //   rules: {
+  //       "@typescript-eslint/no-floating-promises": "error"
+  //   }
+  // },
+  eslintConfigPrettier,
+]);
