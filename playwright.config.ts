@@ -6,7 +6,7 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
-  reporter: [["html", { outputFolder: "reports", title: "SauceDemo Test Report" }]],
+  reporter: [["html", { outputFolder: "test-results/reports", title: "SauceDemo Test Report" }]],
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
     baseURL: "https://www.saucedemo.com/",
@@ -15,7 +15,7 @@ export default defineConfig({
     // Record trace only when retrying a test for the first time.
     trace: 'on-first-retry',
   },
-  outputDir: "reports/artifacts",
+  outputDir: "test-results/artifacts",
   projects: [
     {
       name: "chromium",
