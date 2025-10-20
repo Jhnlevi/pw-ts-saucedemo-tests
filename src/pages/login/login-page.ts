@@ -11,7 +11,7 @@ export class LoginPage {
             LOGIN_USERNAME: page.getByPlaceholder("Username"),
             LOGIN_PASSWORD: page.getByPlaceholder("Password"),
             LOGIN_BUTTON: page.getByRole("button", { name: "Login"}),
-            LOGIN_ERROR_MESSAGE: page.locator(".error")
+            LOGIN_ERROR_MESSAGE: page.locator("[data-test=\"error\"]")
         };
     }
 
