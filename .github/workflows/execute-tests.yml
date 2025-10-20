@@ -5,6 +5,7 @@ on:
     workflows: ["Code Checker"]
     types:
       - completed
+  workflow_dispatch:
 
 jobs:
   build-and-test:

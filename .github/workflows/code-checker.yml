@@ -2,9 +2,7 @@ name: Code Checker
 
 on:
   push:
-    branches: [main, master]
-  pull_request:
-    branches: [main, master]
+    branches-ignore: ["main", "master"]
   workflow_dispatch:
 
 jobs:
