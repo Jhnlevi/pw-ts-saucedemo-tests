@@ -25,6 +25,9 @@
       "@pages/*": [
         "./src/pages/*"
       ],
+      "@fixtures/*": [
+        "./src/fixtures/*"
+      ]
     }
   },
   "include": [
