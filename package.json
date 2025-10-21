@@ -18,7 +18,8 @@
     "test:failed": "playwright test --last-failed",
     "test:headed": "playwright test --headed",
     "test:report": "playwright show-report",
-    "verify": "pnpm check && pnpm test"
+    "ci:ui": "playwright test -g \"@UI\"",
+    "ci:e2e": "playwright test -g \"@E2E\""
   },
   "keywords": [],
   "author": "",
