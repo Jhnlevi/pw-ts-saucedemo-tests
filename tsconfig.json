@@ -3,11 +3,7 @@
     "module": "esnext",
     "target": "esnext",
     "moduleResolution": "node",
-    "types": [
-      "@playwright/test",
-      "@types/node",
-      "node"
-    ],
+    "types": ["@playwright/test", "@types/node", "node"],
     "sourceMap": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
@@ -16,24 +12,13 @@
     "isolatedModules": true,
     "skipLibCheck": true,
     "paths": {
-      "@data/*": [
-        "./src/data/*"
-      ],
-      "@helpers/*": [
-        "./src/helpers/*"
-      ],
-      "@pages/*": [
-        "./src/pages/*"
-      ],
-      "@fixtures/*": [
-        "./src/fixtures/*"
-      ]
+      "@data/*": ["./src/data/*"],
+      "@helpers/*": ["./src/helpers/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@fixtures/*": ["./src/fixtures/*"]
     }
   },
-  "include": [
-    "src",
-    "tests"
-  ],
+  "include": ["src", "tests"],
   "exclude": [
     "node_modules",
     "dist",
