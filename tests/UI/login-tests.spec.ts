@@ -1,11 +1,7 @@
 import test, { expect, Locator } from "@playwright/test";
-import { LoginPage } from "../../src/pages/login/login-page";
-import {
-  LoginTestCase,
-  negLoginCases,
-  posLoginCases,
-} from "../../src/data/login-data";
-import { performLogin } from "../../src/helpers/login-helper";
+import { LoginPage } from "@pages/login/login-page";
+import { LoginTestCase, negLoginCases, posLoginCases } from "@data/login-data";
+import { performLogin } from "@helpers/login-helper";
 
 // Combine all test data from login-data.ts
 const testData: LoginTestCase[] = [...posLoginCases, ...negLoginCases];
