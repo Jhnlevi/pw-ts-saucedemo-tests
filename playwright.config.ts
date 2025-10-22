@@ -17,7 +17,7 @@ export default defineConfig({
     [
       "html",
       {
-        outputFolder: path.join("tests-results/reports", `Report_${timeStamp}`),
+        outputFolder: path.join("test-results/reports", `Report_${timeStamp}`),
         title: "SauceDemo Test Report",
       },
     ],
@@ -30,7 +30,7 @@ export default defineConfig({
     // Record trace only when retrying a test for the first time.
     trace: "on-first-retry",
   },
-  outputDir: "tests-results/artifacts",
+  outputDir: "test-results/artifacts",
   projects: [
     {
       name: "chromium",

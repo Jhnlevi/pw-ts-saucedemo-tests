@@ -18,7 +18,8 @@
     "test:failed": "playwright test --last-failed",
     "test:headed": "playwright test --headed",
     "test:report": "playwright show-report",
-    "verify": "pnpm check && pnpm test"
+    "ci:ui": "playwright test -g \"@UI\"",
+    "ci:e2e": "playwright test -g \"@E2E\""
   },
   "keywords": [],
   "author": "",
@@ -31,6 +32,7 @@
     "eslint": "^9.38.0",
     "eslint-config-prettier": "^10.1.8",
     "prettier": "^3.6.2",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.46.1"
   }

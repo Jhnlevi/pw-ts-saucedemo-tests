@@ -10,8 +10,20 @@
     "resolveJsonModule": true,
     "strict": true,
     "isolatedModules": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "paths": {
+      "@data/*": ["./src/data/*"],
+      "@helpers/*": ["./src/helpers/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@fixtures/*": ["./src/fixtures/*"]
+    }
   },
-  "include": ["**/*.ts", "**/*.d.ts"],
-  "exclude": ["node_modules", "dist", "playwright-report", "reports"]
+  "include": ["src", "tests"],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "playwright-report",
+    "reports",
+    "tests-results"
+  ]
 }
