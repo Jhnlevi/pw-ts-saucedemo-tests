@@ -1,0 +1,32 @@
+name: Execute E2E Tests
+
+on:
+  push:
+    branches: ["main", "master"]
+  workflow_dispatch:
+
+jobs:
+  e2e-tests:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t pw-ts-saucedemo .
+
+      - name: Execute E2E tests
+        if: github.ref == 'refs/heads/main'
+        run: |
+          docker run --rm \
+            -v ${{ github.workspace }}/test-results:/src/test-results \
+            pw-ts-saucedemo \
+            pnpm ci:e2e
+
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: SauceDemo (E2E) Test Results
+          path: test-results/
+          retention-days: 30
