@@ -10,7 +10,7 @@ test.describe("Login Tests", () => {
   // Valid test cases (positive)
   testData.forEach(({ description, username, password, type }) => {
     if (type === "positive") {
-      test(`[Login] ${description} should succeed`, async ({ page }) => {
+      test(`[@E2E][Login] ${description} should succeed`, async ({ page }) => {
         const _login: LoginPage = new LoginPage(page);
 
         await page.goto("/");
