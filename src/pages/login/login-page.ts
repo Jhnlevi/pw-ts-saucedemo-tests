@@ -17,7 +17,7 @@ export class LoginPage {
 
   async enterText(
     field: keyof typeof LOGIN_SELECTORS,
-    text: string
+    text: string,
   ): Promise<void> {
     await this._locators[field].fill(text);
   }

@@ -2,7 +2,7 @@
 export const sortItems = (
   value: string,
   order: string[],
-  prices: string[]
+  prices: string[],
 ): boolean => {
   switch (value) {
     case "az": {

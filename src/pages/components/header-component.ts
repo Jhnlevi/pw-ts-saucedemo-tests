@@ -10,10 +10,10 @@ export class HeaderComponent {
     this._locators = {
       HEADER_MENU_BUTTON: this._page.getByRole("button", { name: "Open Menu" }),
       HEADER_CART_BUTTON: this._page.locator(
-        '[data-test="shopping-cart-link"]'
+        '[data-test="shopping-cart-link"]',
       ),
       HEADER_CART_BADGE: this._page.locator(
-        '[data-test="shopping-cart-badge"]'
+        '[data-test="shopping-cart-badge"]',
       ),
     };
   }
