@@ -7,7 +7,7 @@ on:
 
 jobs:
   lint-and-format:
-    name: "Code Quality (ESLint + Prettier)"
+    name: "Code Quality"
     runs-on: ubuntu-latest
 
     steps:
@@ -20,5 +20,8 @@ jobs:
       - name: Install node dependencies
         run: npm install -g pnpm && pnpm install
 
-      - name: "Run linting and formatting checks"
-        run: pnpm check
+      - name: "Run ESLint"
+        run: pnpm lint
+
+      - name: "Run Prettier"
+        run: pnpm format
