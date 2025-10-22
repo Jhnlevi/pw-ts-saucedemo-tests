@@ -8,16 +8,16 @@ export class LoginPage {
   constructor(page: Page) {
     this._page = page;
     this._locators = {
-      LOGIN_USERNAME: page.getByPlaceholder("Username"),
-      LOGIN_PASSWORD: page.getByPlaceholder("Password"),
-      LOGIN_BUTTON: page.getByRole("button", { name: "Login" }),
-      LOGIN_ERROR_MESSAGE: page.locator('[data-test="error"]'),
+      LOGIN_USERNAME: this._page.getByPlaceholder("Username"),
+      LOGIN_PASSWORD: this._page.getByPlaceholder("Password"),
+      LOGIN_BUTTON: this._page.getByRole("button", { name: "Login" }),
+      LOGIN_ERROR_MESSAGE: this._page.locator('[data-test="error"]'),
     };
   }
 
   async enterText(
     field: keyof typeof LOGIN_SELECTORS,
-    text: string,
+    text: string
   ): Promise<void> {
     await this._locators[field].fill(text);
   }
