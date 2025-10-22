@@ -1,0 +1,12 @@
+services:
+  execute-test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: pw-ts-saucedemo:v1
+    container_name: saucedemo-tests
+    volumes:
+      - ./test-results:/src/test-results
+    working_dir: /src
+    command: >
+      pnpm test
