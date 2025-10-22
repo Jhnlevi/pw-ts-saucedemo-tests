@@ -1,6 +1,7 @@
 import { InventoryItem, inventoryItems } from "@data/inventory-item-data";
 import { InventorySorter, inventorySorters } from "@data/inventory-sort-data";
 import { test, expect } from "@fixtures/auth-fixture";
+import { sortItems } from "@helpers/inventory-helper";
 import { InventoryPage } from "@pages/inventory/inventory-page";
 import { Page } from "@playwright/test";
 
@@ -29,40 +30,8 @@ test.describe("Inventory tests", () => {
         await _inventory.isVisible("INVENTORY_ITEM_PRICE")
       ).allTextContents();
 
-      switch (sortValue) {
-        case "az": {
-          isSorted =
-            JSON.stringify(newOrder) ===
-            JSON.stringify([...newOrder].sort((a, b) => a.localeCompare(b)));
-          break;
-        }
-        case "za": {
-          isSorted =
-            JSON.stringify(newOrder) ===
-            JSON.stringify([...newOrder].sort((a, b) => b.localeCompare(a)));
-          break;
-        }
-        case "lohi": {
-          const pricesLoHi = newPrices.map((p) =>
-            parseFloat(p.replace("$", ""))
-          );
-          isSorted =
-            JSON.stringify(pricesLoHi) ===
-            JSON.stringify([...pricesLoHi].sort((a, b) => a - b));
-          break;
-        }
-        case "hilo": {
-          const pricesHiLo = newPrices.map((p) =>
-            parseFloat(p.replace("$", ""))
-          );
-          isSorted =
-            JSON.stringify(pricesHiLo) ===
-            JSON.stringify([...pricesHiLo].sort((a, b) => b - a));
-          break;
-        }
-        default:
-          break;
-      }
+      // Helper function for switch logic
+      isSorted = sortItems(sortValue, newOrder, newPrices);
 
       await expect(isSorted).toBeTruthy();
     });
