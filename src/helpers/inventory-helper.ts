@@ -1,8 +1,11 @@
+import { InventoryItem } from "@data/inventory-item-data";
+import { InventoryPage } from "@pages/inventory/inventory-page";
+
 // Returns a boolean for each sorting value
 export const sortItems = (
   value: string,
   order: string[],
-  prices: string[],
+  prices: string[]
 ): boolean => {
   switch (value) {
     case "az": {
@@ -34,4 +37,11 @@ export const sortItems = (
     default:
       return false;
   }
+};
+
+// For fixture
+export const addItems = (_inventory: InventoryPage, items: InventoryItem[]) => {
+  items.forEach(async ({ itemName }) => {
+    await _inventory.clickAddItemToCart("INVENTORY_ITEM", itemName);
+  });
 };
