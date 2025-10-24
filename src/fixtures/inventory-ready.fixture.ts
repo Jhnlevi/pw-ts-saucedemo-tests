@@ -6,8 +6,8 @@ import { CartPage } from "@pages/cart/cart-page";
 
 const items: InventoryItem[] = [...inventoryItems];
 
-export const test = base.extend<{ inventoryFixture: CartPage }>({
-  inventoryFixture: async ({ loggedIn }, use) => {
+export const test = base.extend<{ inventoryReady: CartPage }>({
+  inventoryReady: async ({ loggedIn }, use) => {
     const inventory = new InventoryPage(loggedIn);
 
     // Add items to the cart

@@ -4,9 +4,9 @@ import { expect, Locator } from "@playwright/test";
 
 test.describe("Cart tests", () => {
   test(`[Cart] Remove items from the cart, should succeed`, async ({
-    inventoryFixture,
+    inventoryReady,
   }) => {
-    const cart: CartPage = inventoryFixture;
+    const cart: CartPage = inventoryReady;
 
     await cart.RemoveItemFromCart("CART_ITEM", "Sauce Labs Backpack");
 
@@ -18,10 +18,10 @@ test.describe("Cart tests", () => {
   });
 
   test(`[@UI][Cart] Navigate to checkout, should succeed`, async ({
-    inventoryFixture,
+    inventoryReady,
     page,
   }) => {
-    const cart: CartPage = inventoryFixture;
+    const cart: CartPage = inventoryReady;
     await cart.click("CART_CHECKOUT_BUTTON");
 
     const checkoutInfo: Locator = page.locator("div.checkout_info");
@@ -31,10 +31,10 @@ test.describe("Cart tests", () => {
   });
 
   test(`[Cart] Navigate to back to inventory page, should succeed`, async ({
-    inventoryFixture,
+    inventoryReady,
     page,
   }) => {
-    const cart: CartPage = inventoryFixture;
+    const cart: CartPage = inventoryReady;
     await cart.click("CART_CONTINUE_BUTTON");
 
     const inventoryList: Locator = page.locator("div.inventory_list");
