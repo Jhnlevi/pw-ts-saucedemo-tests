@@ -1,3 +1,6 @@
+import { InventoryItem } from "@data/inventory-item-data";
+import { InventoryPage } from "@pages/inventory/inventory-page";
+
 // Returns a boolean for each sorting value
 export const sortItems = (
   value: string,
@@ -33,5 +36,15 @@ export const sortItems = (
     }
     default:
       return false;
+  }
+};
+
+// For fixture
+export const addItems = async (
+  _inventory: InventoryPage,
+  items: InventoryItem[],
+) => {
+  for (const { itemName } of items) {
+    await _inventory.clickAddItemToCart("INVENTORY_ITEM", itemName);
   }
 };
