@@ -1,6 +1,6 @@
 import { InventoryItem, inventoryItems } from "@data/inventory-item-data";
 import { InventorySorter, inventorySorters } from "@data/inventory-sort-data";
-import { test, expect } from "@fixtures/auth-fixture";
+import { test, expect } from "@fixtures/logged-in.fixture";
 import { sortItems } from "@helpers/inventory-helper";
 import { InventoryPage } from "@pages/inventory/inventory-page";
 import { Page } from "@playwright/test";

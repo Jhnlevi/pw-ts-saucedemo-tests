@@ -1,4 +1,4 @@
-import { test as base } from "./auth-fixture";
+import { test as base } from "./logged-in.fixture";
 import { InventoryPage } from "@pages/inventory/inventory-page";
 import { addItems } from "@helpers/inventory-helper";
 import { InventoryItem, inventoryItems } from "@data/inventory-item-data";
