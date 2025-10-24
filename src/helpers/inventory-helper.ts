@@ -40,8 +40,11 @@ export const sortItems = (
 };
 
 // For fixture
-export const addItems = (_inventory: InventoryPage, items: InventoryItem[]) => {
-  items.forEach(async ({ itemName }) => {
+export const addItems = async (
+  _inventory: InventoryPage,
+  items: InventoryItem[]
+) => {
+  for (const { itemName } of items) {
     await _inventory.clickAddItemToCart("INVENTORY_ITEM", itemName);
-  });
+  }
 };
