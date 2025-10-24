@@ -1,4 +1,4 @@
-import { test } from "@fixtures/inventory-ready.fixture";
+import { test } from "@fixtures/inventory-fixture";
 import { CartPage } from "@pages/cart/cart-page";
 import { expect, Locator } from "@playwright/test";
 
