@@ -5,7 +5,7 @@ import { InventoryPage } from "@pages/inventory/inventory-page";
 export const sortItems = (
   value: string,
   order: string[],
-  prices: string[]
+  prices: string[],
 ): boolean => {
   switch (value) {
     case "az": {
@@ -42,7 +42,7 @@ export const sortItems = (
 // For fixture
 export const addItems = async (
   _inventory: InventoryPage,
-  items: InventoryItem[]
+  items: InventoryItem[],
 ) => {
   for (const { itemName } of items) {
     await _inventory.clickAddItemToCart("INVENTORY_ITEM", itemName);
