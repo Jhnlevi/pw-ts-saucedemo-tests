@@ -9,7 +9,9 @@ export const test = base.extend<{ cartReady: CheckoutOnePage }>({
     await inventoryReady.page.waitForURL("**/checkout-step-one.html");
 
     // Returns the checkout step one page object
-    const checkoutOne = new CheckoutOnePage(inventoryReady.page);
+    const checkoutOne: CheckoutOnePage = new CheckoutOnePage(
+      inventoryReady.page
+    );
     await use(checkoutOne);
   },
 });
