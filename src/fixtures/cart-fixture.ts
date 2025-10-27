@@ -15,3 +15,5 @@ export const test = base.extend<{ cartReady: CheckoutOnePage }>({
     await use(checkoutOne);
   },
 });
+
+export { expect } from "@fixtures/logged-in.fixture";

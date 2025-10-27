@@ -24,3 +24,5 @@ export const test = base.extend<{ inventoryReady: CartPage }>({
     await use(cartPage);
   },
 });
+
+export { expect } from "@fixtures/logged-in.fixture";
