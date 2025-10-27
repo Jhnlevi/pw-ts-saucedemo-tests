@@ -22,7 +22,7 @@ export class CheckoutOnePage {
         name: "Continue",
       }),
       CHECKOUT_ONE_ERROR_CONTAINER: this._page.locator(
-        "div.error-message-container"
+        "div.error-message-container",
       ),
       CHECKOUT_ONE_ERROR_MESSAGE: this._page.locator('[data-test="error"]'),
     };
@@ -32,7 +32,7 @@ export class CheckoutOnePage {
 
   async enterText(
     field: keyof typeof CHECKOUT_ONE_SELECTORS,
-    text: string
+    text: string,
   ): Promise<void> {
     await this._locators[field].fill(text);
   }
@@ -46,7 +46,7 @@ export class CheckoutOnePage {
   }
 
   async getLocator(
-    field: keyof typeof CHECKOUT_ONE_SELECTORS
+    field: keyof typeof CHECKOUT_ONE_SELECTORS,
   ): Promise<Locator> {
     return await this._locators[field];
   }

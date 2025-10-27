@@ -10,7 +10,7 @@ export const test = base.extend<{ cartReady: CheckoutOnePage }>({
 
     // Returns the checkout step one page object
     const checkoutOne: CheckoutOnePage = new CheckoutOnePage(
-      inventoryReady.page
+      inventoryReady.page,
     );
     await use(checkoutOne);
   },
