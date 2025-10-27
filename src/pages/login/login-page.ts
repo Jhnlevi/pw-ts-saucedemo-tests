@@ -5,7 +5,7 @@ export class LoginPage {
   private _page: Page;
   private _locators: Record<keyof typeof LOGIN_SELECTORS, Locator>;
 
-  constructor(page: Page) {
+  constructor(public readonly page: Page) {
     this._page = page;
     this._locators = {
       LOGIN_USERNAME: this._page.getByPlaceholder("Username"),

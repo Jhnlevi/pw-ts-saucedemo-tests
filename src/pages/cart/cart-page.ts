@@ -9,7 +9,7 @@ export class CartPage {
   public menu: MenuComponent;
   public header: HeaderComponent;
 
-  constructor(page: Page) {
+  constructor(public readonly page: Page) {
     this._page = page;
     this._locators = {
       CART_ITEM: this._page.locator("div.cart_item"),

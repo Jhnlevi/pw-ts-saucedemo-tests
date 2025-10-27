@@ -6,8 +6,10 @@ import { CartPage } from "@pages/cart/cart-page";
 
 const items: InventoryItem[] = [...inventoryItems];
 
+// loggedIn -> inventoryReady (You are here!)
 export const test = base.extend<{ inventoryReady: CartPage }>({
   inventoryReady: async ({ loggedIn }, use) => {
+    // Initializes the inventory page because the previous fixture (loggedIn) returns page.
     const inventory = new InventoryPage(loggedIn);
 
     // Add items to the cart
@@ -17,8 +19,10 @@ export const test = base.extend<{ inventoryReady: CartPage }>({
     await inventory.header.click("HEADER_CART_BUTTON");
     await loggedIn.waitForURL("**/cart.html");
 
+    // Returns the cart page object
     const cartPage = new CartPage(loggedIn);
-
     await use(cartPage);
   },
 });
+
+export { expect } from "@fixtures/logged-in.fixture";

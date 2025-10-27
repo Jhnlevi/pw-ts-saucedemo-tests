@@ -9,7 +9,7 @@ export class InventoryPage {
   public menu: MenuComponent;
   public header: HeaderComponent;
 
-  constructor(page: Page) {
+  constructor(public readonly page: Page) {
     this._page = page;
     this._locators = {
       INVENTORY_LIST: this._page.locator("div.inventory_list"),
