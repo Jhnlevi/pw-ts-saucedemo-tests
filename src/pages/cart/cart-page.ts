@@ -9,7 +9,7 @@ export class CartPage {
   public menu: MenuComponent;
   public header: HeaderComponent;
 
-  constructor(page: Page) {
+  constructor(public readonly page: Page) {
     this._page = page;
     this._locators = {
       CART_ITEM: this._page.locator("div.cart_item"),
@@ -30,7 +30,7 @@ export class CartPage {
 
   async clickItemByName(
     field: keyof typeof CART_SELECTORS,
-    itemName: string,
+    itemName: string
   ): Promise<void> {
     const item: Locator = this._locators[field].filter({ hasText: itemName });
     await item.getByRole("link", { name: itemName }).click();
@@ -38,7 +38,7 @@ export class CartPage {
 
   async RemoveItemFromCart(
     field: keyof typeof CART_SELECTORS,
-    itemName: string,
+    itemName: string
   ): Promise<void> {
     const item: Locator = this._locators[field].filter({ hasText: itemName });
     await item.getByRole("button", { name: "Remove" }).click();

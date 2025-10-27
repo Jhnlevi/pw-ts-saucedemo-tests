@@ -9,7 +9,7 @@ export class CheckoutOnePage {
   public menu: MenuComponent;
   public header: HeaderComponent;
 
-  constructor(page: Page) {
+  constructor(public readonly page: Page) {
     this._page = page;
     this._locators = {
       CHECKOUT_ONE_FNAME: this._page.getByPlaceholder("First Name"),
