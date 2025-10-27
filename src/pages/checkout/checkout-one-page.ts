@@ -21,6 +21,10 @@ export class CheckoutOnePage {
       CHECKOUT_ONE_CONTINUE_BUTTON: this._page.getByRole("button", {
         name: "Continue",
       }),
+      CHECKOUT_ONE_ERROR_CONTAINER: this._page.locator(
+        "div.error-message-container"
+      ),
+      CHECKOUT_ONE_ERROR_MESSAGE: this._page.locator('[data-test="error"]'),
     };
     this.menu = new MenuComponent(page);
     this.header = new HeaderComponent(page);
