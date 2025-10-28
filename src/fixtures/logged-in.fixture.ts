@@ -1,22 +1,19 @@
 import { performLogin } from "@helpers/login-helper";
-import { LoginPage } from "@pages/login/login-page";
-import { test as base, expect, Page } from "@playwright/test";
+import { InventoryPage } from "@pages/inventory/inventory-page";
+import { test as base } from "@playwright/test";
 
 // loggedIn (Base fixture; You are here!)
-export const test = base.extend<{ loggedIn: Page }>({
+export const test = base.extend<{ loggedIn: InventoryPage }>({
   loggedIn: async ({ page }, use) => {
-    // Initializes the loginPage
-    const loginPage = new LoginPage(page);
-
     // Navigates to index page and performs login action
     await page.goto("/");
-    await performLogin(loginPage, "standard_user", "secret_sauce");
+    await performLogin(page, "standard_user", "secret_sauce");
     await page.waitForURL("**/inventory.html");
 
-    // Returns playwright page
-    await use(page);
+    // Returns the inventory page object
+    await use(new InventoryPage(page));
   },
 });
 
 // Exports expect of Playwright/test
-export { expect };
+export { expect } from "@playwright/test";

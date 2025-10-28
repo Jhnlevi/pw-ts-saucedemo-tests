@@ -7,6 +7,7 @@ import { test, expect } from "@fixtures/cart-fixture";
 import { CheckoutOnePage } from "@pages/checkout/checkout-one-page";
 import { Locator } from "@playwright/test";
 
+// Test data
 const testData: CheckoutOneTestCase[] = [...posCheckoutOne, ...negCheckoutOne];
 
 test.describe(`Checkout Step One Tests`, () => {

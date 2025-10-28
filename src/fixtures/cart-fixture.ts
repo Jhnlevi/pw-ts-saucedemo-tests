@@ -9,11 +9,9 @@ export const test = base.extend<{ cartReady: CheckoutOnePage }>({
     await inventoryReady.page.waitForURL("**/checkout-step-one.html");
 
     // Returns the checkout step one page object
-    const checkoutOne: CheckoutOnePage = new CheckoutOnePage(
-      inventoryReady.page,
-    );
-    await use(checkoutOne);
+    await use(new CheckoutOnePage(inventoryReady.page));
   },
 });
 
+// Exports expect from base fixture (logged-in fuxture)
 export { expect } from "@fixtures/logged-in.fixture";
