@@ -2,9 +2,8 @@ import { InventoryItem, inventoryItems } from "@data/inventory-item-data";
 import { InventorySorter, inventorySorters } from "@data/inventory-sort-data";
 import { test, expect } from "@fixtures/logged-in.fixture";
 import { sortItems } from "@helpers/inventory-helper";
-import { InventoryPage } from "@pages/inventory/inventory-page";
-import { Page } from "@playwright/test";
 
+// Test data
 const items: InventoryItem[] = [...inventoryItems];
 const sorters: InventorySorter[] = [...inventorySorters];
 const itemsToAdd: InventoryItem[] = items.slice(0, 3);
@@ -16,18 +15,16 @@ test.describe("Inventory tests", () => {
     test(`[Inventory] sort using ${sortName}, should succeed`, async ({
       loggedIn,
     }) => {
-      const page: Page = loggedIn;
-      const _inventory: InventoryPage = new InventoryPage(page);
       let isSorted: boolean = false;
 
-      await _inventory.selectItemByValue("INVENTORY_ITEM_SORTER", sortValue);
+      await loggedIn.selectItemByValue("INVENTORY_ITEM_SORTER", sortValue);
 
       // Get new order
       const newOrder: string[] = await (
-        await _inventory.isVisible("INVENTORY_ITEM_NAME")
+        await loggedIn.isVisible("INVENTORY_ITEM_NAME")
       ).allTextContents();
       const newPrices: string[] = await (
-        await _inventory.isVisible("INVENTORY_ITEM_PRICE")
+        await loggedIn.isVisible("INVENTORY_ITEM_PRICE")
       ).allTextContents();
 
       // Helper function for switch logic
@@ -42,16 +39,13 @@ test.describe("Inventory tests", () => {
     test(`[@UI][Inventory] add item ${itemName}, should succeed`, async ({
       loggedIn,
     }) => {
-      const page: Page = loggedIn;
-      const _inventory: InventoryPage = new InventoryPage(page);
-
       let count: number = 0;
 
-      await _inventory.clickAddItemToCart("INVENTORY_ITEM", itemName);
+      await loggedIn.clickAddItemToCart("INVENTORY_ITEM", itemName);
       count++;
 
       const badgeCounter: string =
-        await _inventory.header.getText("HEADER_CART_BADGE");
+        await loggedIn.header.getText("HEADER_CART_BADGE");
 
       await expect(badgeCounter).toBe(count.toString());
     });
@@ -61,24 +55,22 @@ test.describe("Inventory tests", () => {
   test(`[Inventory] removing two (2) items from the cart, should succeed`, async ({
     loggedIn,
   }) => {
-    const page: Page = loggedIn;
-    const _inventory: InventoryPage = new InventoryPage(page);
     let count: number = 0;
 
     // Add all items to the cart
     for (const item of items) {
-      await _inventory.clickAddItemToCart("INVENTORY_ITEM", item.itemName);
+      await loggedIn.clickAddItemToCart("INVENTORY_ITEM", item.itemName);
       count++;
     }
 
     // Remove two (2) items
     for (const item of itemsToRemove) {
-      await _inventory.clickRemoveItemFromCart("INVENTORY_ITEM", item.itemName);
+      await loggedIn.clickRemoveItemFromCart("INVENTORY_ITEM", item.itemName);
       count--;
     }
 
     const badgeCounter: string =
-      await _inventory.header.getText("HEADER_CART_BADGE");
+      await loggedIn.header.getText("HEADER_CART_BADGE");
 
     await expect(badgeCounter).toBe(count.toString());
   });
