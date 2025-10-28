@@ -9,7 +9,7 @@ test.describe(`Checkout Step Two Tests`, () => {
     const checkoutTwo: CheckoutTwoPage = checkoutOneReady;
     const cartList: Locator = await checkoutTwo.getLocator("CHECKOUT_TWO_LIST");
     const summaryInfo: Locator = await checkoutTwo.getLocator(
-      "CHECKOUT_TWO_SUMMARY_INFO"
+      "CHECKOUT_TWO_SUMMARY_INFO",
     );
     const headerBadge: Locator =
       await checkoutTwo.header.isVisible("HEADER_CART_BADGE");
@@ -20,7 +20,7 @@ test.describe(`Checkout Step Two Tests`, () => {
     await checkoutTwo.click("CHECKOUT_TWO_FINISH_BUTTON");
 
     const checkoutCompleteContainer: Locator = checkoutTwo.page.locator(
-      "#checkout_complete_container"
+      "#checkout_complete_container",
     );
 
     await expect(checkoutTwo.page).toHaveURL(/checkout-complete/);
@@ -34,7 +34,7 @@ test.describe(`Checkout Step Two Tests`, () => {
     const checkoutTwo: CheckoutTwoPage = checkoutOneReady;
     const cartList: Locator = await checkoutTwo.getLocator("CHECKOUT_TWO_LIST");
     const summaryInfo: Locator = await checkoutTwo.getLocator(
-      "CHECKOUT_TWO_SUMMARY_INFO"
+      "CHECKOUT_TWO_SUMMARY_INFO",
     );
 
     await expect(cartList).toBeVisible();

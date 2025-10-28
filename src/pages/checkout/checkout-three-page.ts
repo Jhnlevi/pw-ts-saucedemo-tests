@@ -13,7 +13,7 @@ export class CheckoutThreePage {
     this._page = page;
     this._locators = {
       CHECKOUT_THREE_COMPLETE_CONTAINER: this._page.locator(
-        "#checkout_complete_container"
+        "#checkout_complete_container",
       ),
     };
     this.menu = new MenuComponent(page);
@@ -29,7 +29,7 @@ export class CheckoutThreePage {
   }
 
   async getLocator(
-    field: keyof typeof CHECKOUT_THREE_SELECTORS
+    field: keyof typeof CHECKOUT_THREE_SELECTORS,
   ): Promise<Locator> {
     return await this._locators[field];
   }

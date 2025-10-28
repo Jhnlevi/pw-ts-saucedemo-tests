@@ -34,7 +34,7 @@ export class CheckoutTwoPage {
   }
 
   async getLocator(
-    field: keyof typeof CHECKOUT_TWO_SELECTORS
+    field: keyof typeof CHECKOUT_TWO_SELECTORS,
   ): Promise<Locator> {
     return await this._locators[field];
   }

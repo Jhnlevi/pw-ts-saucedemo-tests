@@ -49,7 +49,7 @@ test.describe("Login Tests", () => {
         await performLogin(page, username, password);
 
         const errElement: Locator = await _login.isVisible(
-          "LOGIN_ERROR_MESSAGE"
+          "LOGIN_ERROR_MESSAGE",
         );
         const errMessage: string = error?.message ?? "No error";
 
